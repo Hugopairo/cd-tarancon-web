@@ -132,25 +132,25 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .filters button:hover { color: var(--ink); border-color: var(--blue); }
 .filters button[aria-selected="true"] { background: var(--blue); color: var(--paper); border-color: var(--blue); }
 .cal-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
-.fx { display: grid; grid-template-columns: 2rem 9.5rem 1fr; gap: 1rem; align-items: center; padding: .95rem .5rem; border-bottom: 1px solid var(--line); }
+.fx { display: grid; grid-template-columns: 1.5rem 9.5rem 1fr; gap: .9rem; align-items: center; padding: .6rem .5rem; border-bottom: 1px solid var(--line); }
 .fx:first-child { border-top: 1px solid var(--line); }
-.fx.next { background: oklch(0.46 0.10 247 / .09); border-radius: 8px; border-bottom-color: transparent; padding-inline: 1rem; margin-inline: -.5rem; }
+.fx.next { background: oklch(0.46 0.10 247 / .09); border-radius: 8px; border-bottom-color: transparent; padding-inline: .75rem; margin-inline: -.25rem; }
 .fx-day { font-size: .92rem; color: var(--muted); white-space: nowrap; }
 .fx-day > span:first-child { display: inline-block; min-width: 2.2rem; font-weight: 600; color: var(--ink); }
 .fx-tag { font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; background: var(--navy); color: var(--on-navy) !important; padding: .15rem .4rem; border-radius: 4px; margin-right: .2rem; }
 .fx-match { display: grid; grid-template-columns: 1fr auto 1fr; gap: .75rem; align-items: center; }
-.fx-team { font: 700 1.15rem/1.1 var(--display); text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
+.fx-team { font: 700 1.05rem/1.1 var(--display); text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
 .fx-team:first-child { text-align: right; }
 .fx-team.me { color: var(--ink); }
-.fx-score, .fx-time { font: 800 1.4rem var(--display); font-variant-numeric: tabular-nums; letter-spacing: .04em; min-width: 4.2rem; text-align: center; }
-.fx-time { color: var(--blue); font-size: 1.15rem; }
-.res-badge { display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 6px; font: 800 .9rem var(--display); color: #fff; }
+.fx-score, .fx-time { font: 800 1.2rem var(--display); font-variant-numeric: tabular-nums; letter-spacing: .04em; min-width: 4.2rem; text-align: center; }
+.fx-time { color: var(--blue); font-size: 1.05rem; }
+.res-badge { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 5px; font: 800 .85rem var(--display); color: #fff; }
 .res-V { background: var(--win); } .res-E { background: var(--draw); } .res-D { background: var(--loss); }
-.res-next { background: transparent; border: 2px solid var(--blue); }
+.res-next { width: .5rem; height: .5rem; border-radius: 50%; background: var(--blue); justify-self: center; opacity: .55; }
 .standing { padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: 12px; background: var(--paper-2); position: sticky; top: 5.5rem; }
 .standing h3 { color: var(--muted); font-size: 1.15rem; letter-spacing: .08em; margin-bottom: 1rem; }
 .st-table { width: 100%; border-collapse: collapse; font-size: .95rem; font-variant-numeric: tabular-nums; }
-.st-table th, .st-table td { padding: .42rem .3rem; text-align: center; border-bottom: 1px solid var(--line); }
+.st-table th, .st-table td { padding: .5rem .3rem; text-align: center; border-bottom: 1px solid var(--line); }
 .st-table thead th { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .st-table tbody th { text-align: left; font-weight: 500; }
 .st-table td:first-child { color: var(--muted); width: 1.8rem; }
@@ -161,7 +161,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .st-formrow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.1rem 0 0; font-size: .85rem; color: var(--muted); }
 .st-form { display: flex; gap: .35rem; }
-.standing .btn { margin-top: 1.25rem; width: 100%; }
+.st-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.standing .btn { margin-top: 0; padding: .65rem 1.1rem; font-size: .92rem; }
+.st-link { font-size: .9rem; color: var(--blue); }
 .fx-empty { padding: 1.5rem 0; color: var(--muted); }
 #updated { display: block; margin-top: .25rem; }
 

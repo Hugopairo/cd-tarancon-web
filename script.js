@@ -135,9 +135,20 @@ function render(data) {
   $("#partido").hidden = !next;
 
   /* Clasificación oficial */
-  $("#st-body").innerHTML = data.table.map((r) =>
-    `<tr${r.team === ME ? ' class="me"' : ""}><td>${r.pos}</td><th scope="row">${r.team}</th><td>${r.pj}</td><td>${r.gf - r.gc > 0 ? "+" : ""}${r.gf - r.gc}</td><td><b>${r.pts}</b></td></tr>`
-  ).join("");
+  /* Por defecto solo el Tarancón y los 2 de arriba y los 2 de abajo */
+  const mineIdx = Math.max(0, data.table.findIndex((r) => r.team === ME));
+  const from = Math.min(Math.max(0, mineIdx - 2), Math.max(0, data.table.length - 5));
+  let fullTable = false;
+  const stBtn = $("#st-more");
+  const renderTable = () => {
+    const rows = fullTable ? data.table : data.table.slice(from, from + 5);
+    $("#st-body").innerHTML = rows.map((r) =>
+      `<tr${r.team === ME ? ' class="me"' : ""}><td>${r.pos}</td><th scope="row">${r.team}</th><td>${r.pj}</td><td>${r.gf - r.gc > 0 ? "+" : ""}${r.gf - r.gc}</td><td><b>${r.pts}</b></td></tr>`
+    ).join("");
+    stBtn.textContent = fullTable ? "Ver solo mi zona" : "Ver tabla completa";
+  };
+  stBtn.onclick = () => { fullTable = !fullTable; renderTable(); };
+  renderTable();
   const mine = data.table.find((r) => r.team === ME);
   $("#st-form").innerHTML = mine ? mine.form.map((r) => `<span class="res-badge res-${r}" title="${label[r]}">${r}</span>`).join("") : "";
   $("#st-link").href = data.standingsUrl;
@@ -150,7 +161,7 @@ function render(data) {
     const badge = isPlayed ? `<span class="res-badge res-${r}" title="${label[r]}">${r}</span>` : `<span class="res-badge res-next" title="Por jugar"></span>`;
     const mid = isPlayed ? `<b class="fx-score">${scoreTxt(f)}</b>` : `<span class="fx-time">${f.time || "—"}</span>`;
     const team = (n) => `<span class="fx-team${n === ME ? " me" : ""}">${n}</span>`;
-    const tag = f.comp ? `<span class="fx-tag">Copa del Rey</span>` : `J${f.j}`;
+    const tag = f.comp ? `<span class="fx-tag">Copa</span>` : `J${f.j}`;
     return `<li class="fx${isNext ? " next" : ""}">${badge}<span class="fx-day"><span>${tag}</span> ${day(f)}</span><span class="fx-match">${team(f.home)}${mid}${team(f.away)}</span></li>`;
   };
   const renderCal = () => {
