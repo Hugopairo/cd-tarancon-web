@@ -1,0 +1,42 @@
+---
+import { url } from "../lib/paths";
+const { solid = false } = Astro.props;
+const links = [
+  { href: url("#calendario"), label: "Calendario" },
+  { href: url("#plantilla"), label: "Jugadores" },
+  { href: url("#club"), label: "El club" },
+  { href: url("#cantera"), label: "Cantera" },
+  { href: url("noticias/"), label: "Noticias" },
+  { href: url("tienda/"), label: "Tienda" },
+];
+---
+<header class:list={["nav", { scrolled: solid }]} id="nav" data-solid={solid}>
+  <a class="brand" href={url()} aria-label="CD Tarancón, inicio">
+    <img class="brand-mark" src={url("img/escudo.png")} alt="" width="30" height="34">
+    <span>CD Tarancón</span>
+  </a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="m-open" d="M4 7h16M4 12h16M4 17h16"/><path class="m-close" d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <nav class="nav-links" id="nav-links" aria-label="Principal">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a href={url("abonados/")} class="nav-cta">Abonados</a>
+  </nav>
+</header>
+
+<script>
+  const nav = document.getElementById("nav")!;
+  const btn = document.getElementById("menu-btn")!;
+  const solid = nav.dataset.solid === "true";
+  const onScroll = () => nav.classList.toggle("scrolled", solid || scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  const setMenu = (open: boolean) => {
+    nav.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  };
+  btn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+  nav.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+</script>

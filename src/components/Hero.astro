@@ -1,0 +1,48 @@
+---
+import { url } from "../lib/paths";
+import { last, next, short, scoreTxt, day } from "../lib/club";
+---
+<section class="hero" id="inicio">
+  <svg class="pitch" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <rect class="draw" x="80" y="80" width="1040" height="640" pathLength="1"/>
+      <line class="draw" x1="600" y1="80" x2="600" y2="720" pathLength="1"/>
+      <circle class="draw" cx="600" cy="400" r="110" pathLength="1"/>
+      <rect class="draw" x="80" y="230" width="190" height="340" pathLength="1"/>
+      <rect class="draw" x="930" y="230" width="190" height="340" pathLength="1"/>
+      <rect class="draw" x="80" y="320" width="70" height="160" pathLength="1"/>
+      <rect class="draw" x="1050" y="320" width="70" height="160" pathLength="1"/>
+      <path class="draw" d="M270 330a110 110 0 0 1 0 140" pathLength="1"/>
+      <path class="draw" d="M930 330a110 110 0 0 0 0 140" pathLength="1"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <h1>CD Tarancón</h1>
+      <p class="hero-lede">El club de fútbol de Tarancón, fundado en 1995. Hoy compite en Tercera Federación, Grupo 18, con una cantera que juega en casa desde los años 80.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#partido">Próximo partido</a>
+        <a class="btn btn-ghost" href="#socios">Hazte socio</a>
+      </div>
+    </div>
+    <img class="hero-crest" src={url("img/escudo.png")} alt="Escudo del CD Tarancón" width="294" height="339">
+  </div>
+
+  <div class="matchbar">
+    <div class="wrap matchbar-in">
+      {last && (
+        <a href="#calendario" class="mb-item">
+          <small>Último resultado</small>
+          <span><b>{short(last.home)}</b> {scoreTxt(last)} <b>{short(last.away)}</b></span>
+        </a>
+      )}
+      {next && (
+        <a href="#partido" class="mb-item">
+          <small>Próximo partido</small>
+          <span><b>{short(next.home)}</b> vs <b>{short(next.away)}</b> · {day(next)}{next.time ? ` · ${next.time} h` : ""}</span>
+        </a>
+      )}
+    </div>
+  </div>
+</section>

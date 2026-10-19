@@ -1,0 +1,5 @@
+[
+  { "id": "camiseta", "nombre": "Camiseta del club", "descripcion": "Producto de ejemplo.", "precio": null },
+  { "id": "bufanda", "nombre": "Bufanda blanquiazul", "descripcion": "Producto de ejemplo.", "precio": null },
+  { "id": "carne", "nombre": "Carné de socio", "descripcion": "Producto de ejemplo.", "precio": null }
+]

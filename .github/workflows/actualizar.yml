@@ -27,30 +27,31 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - run: npm ci
 
       - name: Leer calendario, resultados y clasificación
-        run: node scripts/update-data.mjs
+        run: npm run update-data
         # Si BeSoccer falla o cambia, el script sale con error y se publican los últimos datos buenos.
+        # (Ahora mismo BeSoccer bloquea los servidores de GitHub: ver README.)
         continue-on-error: true
 
       - name: Guardar data.json si ha cambiado
         run: |
-          if [ -n "$(git status --porcelain data.json)" ]; then
+          if [ -n "$(git status --porcelain src/data/data.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data.json
+            git add src/data/data.json
             git commit -m "Datos actualizados"
             git push
           fi
 
-      - name: Preparar sitio
-        run: |
-          mkdir _site
-          cp -r index.html script.js styles.css data.json img _site/
+      - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
 
   deploy:
     needs: build

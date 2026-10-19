@@ -1,0 +1,45 @@
+/* Piezas de la home que se despliegan sin JavaScript de render */
+.fx.extra { display: none; }
+.cal-list.expanded .fx.extra { display: grid; }
+.st-table tr.extra { display: none; }
+.standing.expanded .st-table tr.extra { display: table-row; }
+
+/* Subpáginas (noticias, tienda, abonados) */
+.page-head { background: radial-gradient(110% 140% at 85% 0%, var(--blue-deep), var(--navy) 70%); color: var(--on-navy); padding: 8.5rem 0 3.25rem; }
+.page-head h1 { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 800; line-height: .9; }
+.page-head p { margin: 1rem 0 0; max-width: 52ch; color: var(--on-navy-dim); font-size: 1.15rem; }
+.page-body { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.todo { margin: 0 0 2rem; padding: .85rem 1.1rem; border-radius: 8px; background: oklch(0.95 0.06 90); color: oklch(0.32 0.06 80); font-size: .92rem; }
+.todo code { font-size: .88em; }
+
+/* Noticias */
+.news-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 1.5rem; }
+.news-card { display: flex; flex-direction: column; gap: .6rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 12px; background: #fff; text-decoration: none; transition: border-color .25s, transform .35s var(--ease); }
+.news-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+.news-card time, .article time { font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+.news-card h2 { font-size: 1.7rem; line-height: 1; }
+.news-card p { margin: 0; color: var(--muted); }
+.article { max-width: 68ch; margin-inline: auto; }
+.article h2 { font-size: 2rem; margin: 2rem 0 .75rem; }
+.article p { margin: 0 0 1.1em; }
+.article .back { display: inline-block; margin-bottom: 1.5rem; color: var(--blue); font-weight: 600; text-decoration: none; }
+
+/* Tienda */
+.shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 1.5rem; }
+.product { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; background: #fff; overflow: hidden; }
+.product-img { aspect-ratio: 4 / 3; display: grid; place-items: center; background: var(--paper-2); }
+.product-img img { width: 28%; height: auto; opacity: .35; }
+.product-body { display: flex; flex-direction: column; gap: .4rem; padding: 1.1rem 1.25rem 1.25rem; flex: 1; }
+.product h2 { font-size: 1.5rem; }
+.product p { margin: 0; color: var(--muted); font-size: .95rem; }
+.product .price { margin-top: auto; padding-top: .6rem; font: 800 1.4rem var(--display); color: var(--blue); }
+.product .btn { margin-top: .5rem; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* Abonados */
+.auth { display: grid; grid-template-columns: minmax(0, 28rem); justify-content: center; }
+.auth .join { box-shadow: 0 24px 48px -30px oklch(0.2 0.06 255 / .35); border: 1px solid var(--line); }
+.auth .alt { text-align: center; margin: 1.25rem 0 0; color: var(--muted); }
+.auth .alt a { color: var(--blue); font-weight: 600; }
+
+body.sub .footer { margin-top: 0; }

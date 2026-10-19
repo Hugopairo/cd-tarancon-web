@@ -1,0 +1,62 @@
+[
+  {
+    "n": 11,
+    "name": "Mădălin Fizeșan",
+    "pos": "DEL",
+    "role": "Delantero"
+  },
+  {
+    "n": 7,
+    "name": "Iván Cabellud",
+    "pos": "DEL",
+    "role": "Delantero"
+  },
+  {
+    "n": null,
+    "name": "Paulinho",
+    "pos": "DEL",
+    "role": "Delantero"
+  },
+  {
+    "n": 5,
+    "name": "Yves Clovis Ouedraogo",
+    "pos": "MED",
+    "role": "Centrocampista"
+  },
+  {
+    "n": 14,
+    "name": "Carlos Gascó",
+    "pos": "DEF",
+    "role": "Defensa"
+  },
+  {
+    "n": 21,
+    "name": "Kiko Pomares",
+    "pos": "DEF",
+    "role": "Defensa"
+  },
+  {
+    "n": null,
+    "name": "Víctor Armenteros",
+    "pos": "DEF",
+    "role": "Defensa"
+  },
+  {
+    "n": null,
+    "name": "José Muñoz",
+    "pos": "DEF",
+    "role": "Defensa"
+  },
+  {
+    "n": null,
+    "name": "Peter Mbia",
+    "pos": "POR",
+    "role": "Portero"
+  },
+  {
+    "n": null,
+    "name": "Pery",
+    "pos": "POR",
+    "role": "Portero"
+  }
+]

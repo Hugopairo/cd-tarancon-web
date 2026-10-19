@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { url } from "../../lib/paths";
+
+const posts = (await getCollection("noticias")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Madrid" });
+---
+<Base title="Noticias · CD Tarancón" description="Noticias y crónicas del CD Tarancón." solid>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Noticias</h1>
+      <p>Crónicas, avisos y novedades del club.</p>
+    </div>
+  </header>
+  <section class="page-body">
+    <div class="wrap">
+      {/* TODO (proyecto intermodular): hoja de noticias para abonados. Idea: añadir `abonados: true` al
+          esquema en src/content.config.ts y filtrar aquí según la sesión del usuario. */}
+      <div class="news-list">
+        {posts.map((p) => (
+          <a class="news-card" href={url(`noticias/${p.id}/`)}>
+            <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
+            <h2>{p.data.title}</h2>
+            <p>{p.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

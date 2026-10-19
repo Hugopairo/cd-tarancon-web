@@ -1,0 +1,22 @@
+---
+const steps = [
+  ["Prebenjamín", "Jugar, reír y tocar el balón. Todo lo demás viene después.", "6–7 años"],
+  ["Benjamín", "Primeros equipos de fútbol 7 y primeras ganas de ganar.", "8–9 años"],
+  ["Alevín", "Táctica básica, trabajo en equipo y mucho aprendizaje.", "10–11 años"],
+  ["Infantil · Cadete", "El salto al campo grande, con entrenadores que forman personas.", "12–15 años"],
+  ["Juvenil", "La puerta al primer equipo del CD Tarancón.", "16–18 años"],
+];
+---
+<section class="section academy" id="cantera">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <div>
+        <h2>Cantera</h2>
+        <p class="muted">Del primer balón al primer equipo, con la escuela de fútbol base de Tarancón.</p>
+      </div>
+    </div>
+    <ol class="pathway in">
+      {steps.map(([name, text, age]) => <li><h3>{name}</h3><p>{text}</p><span class="age">{age}</span></li>)}
+    </ol>
+  </div>
+</section>

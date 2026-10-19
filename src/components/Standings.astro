@@ -1,0 +1,36 @@
+---
+import { ME, table, nearby, myRow, standingsUrl, resultLabel, type TableRow } from "../lib/club";
+const dg = (r: TableRow) => `${r.gf - r.gc > 0 ? "+" : ""}${r.gf - r.gc}`;
+const nearbyPos = new Set(nearby.map((r) => r.pos));
+---
+<aside class="standing" aria-labelledby="st-h" id="standing">
+  <h3 id="st-h">Clasificación</h3>
+  <table class="st-table">
+    <thead><tr><th scope="col"><span class="sr">Puesto</span></th><th scope="col">Equipo</th><th scope="col">PJ</th><th scope="col">DG</th><th scope="col">Pts</th></tr></thead>
+    <tbody>
+      {table.map((r) => (
+        <tr class:list={{ me: r.team === ME, extra: !nearbyPos.has(r.pos) }}>
+          <td>{r.pos}</td><th scope="row">{r.team}</th><td>{r.pj}</td><td>{dg(r)}</td><td><b>{r.pts}</b></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  {myRow && (
+    <p class="st-formrow"><span>Últimos 5</span>
+      <span class="st-form">{myRow.form.map((r) => <span class={`res-badge res-${r}`} title={resultLabel[r]}>{r}</span>)}</span>
+    </p>
+  )}
+  <div class="st-actions">
+    <button class="btn btn-line" type="button" id="st-more">Ver tabla completa</button>
+    <a class="st-link" href={standingsUrl} target="_blank" rel="noopener">Clasificación oficial ↗</a>
+  </div>
+</aside>
+
+<script>
+  const box = document.getElementById("standing")!;
+  const btn = document.getElementById("st-more")!;
+  btn.addEventListener("click", () => {
+    const open = box.classList.toggle("expanded");
+    btn.textContent = open ? "Ver solo mi zona" : "Ver tabla completa";
+  });
+</script>

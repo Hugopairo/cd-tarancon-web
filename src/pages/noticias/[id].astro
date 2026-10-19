@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { url } from "../../lib/paths";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("noticias");
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Madrid" });
+---
+<Base title={`${post.data.title} · CD Tarancón`} description={post.data.description} solid>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>{post.data.title}</h1>
+      <p>{post.data.description}</p>
+    </div>
+  </header>
+  <section class="page-body">
+    <article class="article">
+      <a class="back" href={url("noticias/")}>← Todas las noticias</a>
+      <p><time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time></p>
+      <Content />
+    </article>
+  </section>
+</Base>

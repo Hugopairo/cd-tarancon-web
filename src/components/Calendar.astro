@@ -1,0 +1,71 @@
+---
+import { ME, done, upcoming, result, scoreTxt, day, resultLabel, type Fixture } from "../lib/club";
+import Standings from "./Standings.astro";
+
+const lists = [
+  { id: "next", label: "Próximos", items: upcoming },
+  { id: "played", label: "Resultados", items: [...done].reverse() },
+];
+const VISIBLE = 6; // el resto se despliega con "Ver más"
+---
+<section class="section calendar" id="calendario">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <div>
+        <h2>Calendario y resultados</h2>
+        <p class="muted">Tercera Federación, Grupo 18 · Temporada 2026-27 · 34 jornadas, hasta el 9 de mayo.</p>
+      </div>
+      <div class="filters" role="tablist" aria-label="Ver partidos">
+        {lists.map((l, i) => <button role="tab" aria-selected={i === 0} data-cal={l.id}>{l.label}</button>)}
+      </div>
+    </div>
+    <div class="cal-grid" data-reveal>
+      <div>
+        {lists.map((l, i) => (
+          <div class="cal-list" data-list={l.id} hidden={i !== 0}>
+            <ol class="fixtures" aria-label={`Partidos del CD Tarancón: ${l.label.toLowerCase()}`}>
+              {l.items.map((f: Fixture, k: number) => {
+                const r = f.score ? result(f) : null;
+                return (
+                  <li class:list={["fx", { next: l.id === "next" && k === 0, extra: k >= VISIBLE }]}>
+                    {r ? <span class={`res-badge res-${r}`} title={resultLabel[r]}>{r}</span> : <span class="res-badge res-next" title="Por jugar"></span>}
+                    <span class="fx-day"><span>{f.comp ? <span class="fx-tag">Copa</span> : `J${f.j}`}</span> {day(f)}</span>
+                    <span class="fx-match">
+                      <span class:list={["fx-team", { me: f.home === ME }]}>{f.home}</span>
+                      {f.score ? <b class="fx-score">{scoreTxt(f)}</b> : <span class="fx-time">{f.time || "—"}</span>}
+                      <span class:list={["fx-team", { me: f.away === ME }]}>{f.away}</span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+            {l.items.length > VISIBLE && (
+              <button class="btn btn-line cal-more" type="button" data-more>
+                {l.id === "next" ? `Ver las ${l.items.length} citas restantes` : `Ver los ${l.items.length} resultados`}
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+      <Standings />
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.getElementById("calendario")!;
+  const tabs = root.querySelectorAll<HTMLButtonElement>("[data-cal]");
+  const lists = root.querySelectorAll<HTMLElement>("[data-list]");
+  tabs.forEach((t) => t.addEventListener("click", () => {
+    tabs.forEach((x) => x.setAttribute("aria-selected", String(x === t)));
+    lists.forEach((l) => (l.hidden = l.dataset.list !== t.dataset.cal));
+  }));
+  root.querySelectorAll<HTMLButtonElement>("[data-more]").forEach((b) => {
+    const list = b.closest<HTMLElement>("[data-list]")!;
+    const label = b.textContent!.trim();
+    b.addEventListener("click", () => {
+      const open = list.classList.toggle("expanded");
+      b.textContent = open ? "Ver menos" : label;
+    });
+  });
+</script>

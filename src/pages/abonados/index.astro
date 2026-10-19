@@ -1,0 +1,44 @@
+---
+import Base from "../../layouts/Base.astro";
+import { url } from "../../lib/paths";
+---
+<Base title="Abonados · CD Tarancón" description="Zona de abonados del CD Tarancón." solid>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Zona de abonados</h1>
+      <p>Accede a tu carné, tus noticias y tus compras.</p>
+    </div>
+  </header>
+  <section class="page-body">
+    <div class="wrap">
+      <p class="todo">
+        <strong>Para el proyecto:</strong> solo la maqueta de entrada. Falta el registro, el login, la sesión y las páginas
+        privadas (carné, noticias de abonados, pedidos). El formulario no envía nada.
+      </p>
+      <div class="auth">
+        <form class="join" id="login" novalidate>
+          <label>Correo electrónico
+            <input name="email" type="email" autocomplete="email" required placeholder="tu@correo.es">
+          </label>
+          <label>Contraseña
+            <input name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="btn btn-primary" type="submit">Entrar</button>
+          <p class="form-msg" id="login-msg" role="status"></p>
+        </form>
+        <p class="alt">¿Aún no eres abonado? <a href={url("#socios")}>Hazte socio</a></p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById("login") as HTMLFormElement;
+  const msg = document.getElementById("login-msg")!;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // TODO login: enviar email y contraseña al backend y guardar la sesión.
+    msg.className = "form-msg err";
+    msg.textContent = "La zona de abonados todavía no está disponible.";
+  });
+</script>

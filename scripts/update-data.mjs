@@ -12,7 +12,7 @@ const URLS = {
   matches: "https://www.besoccer.com/team/matches/tarancon",
   table: "https://www.besoccer.com/team/table/tarancon",
 };
-const OUT = fileURLToPath(new URL("../data.json", import.meta.url));
+const OUT = fileURLToPath(new URL("../src/data/data.json", import.meta.url));
 
 // Se usa node:https y no fetch: BeSoccer responde 406 a las cabeceras sec-fetch-* que añade fetch.
 const get = (url) => new Promise((resolve, reject) => {

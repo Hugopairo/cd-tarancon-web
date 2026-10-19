@@ -1,0 +1,58 @@
+---
+import { url } from "../lib/paths";
+import { ME, next, upcoming, kickoff, rival, short, initials, day, dayLong, venue } from "../lib/club";
+
+const after = upcoming[1];
+const away = next && next.home !== ME;
+const target = next ? kickoff(next) : null;
+---
+{next && target && (
+<section class="section match" id="partido">
+  <div class="wrap match-grid">
+    <div class="match-head" data-reveal>
+      <h2>Próximo partido</h2>
+      <p class="muted">Cuenta atrás para el siguiente partido del primer equipo.</p>
+      {after && (
+        <p class="then">
+          Después: <b>{after.comp ? `${after.comp} · ` : ""}{rival(after)}</b>, {day(after).toLowerCase()}{after.time ? ` · ${after.time} h` : ""}.
+        </p>
+      )}
+    </div>
+
+    <article class="fixture" data-reveal aria-labelledby="fx-title">
+      <p class="fx-comp">{next.comp || `Tercera Federación · Jornada ${next.j}`}</p>
+      <div class="fixture-teams" style={away ? "flex-direction: row-reverse" : undefined}>
+        <div class="team team-home"><img class="team-logo" src={url("img/escudo.png")} alt="" width="92" height="106"><span class="team-name">CD Tarancón</span></div>
+        <span class="vs">vs</span>
+        <div class="team team-away"><span class="team-crest" aria-hidden="true">{initials(rival(next))}</span><span class="team-name">{rival(next)}</span></div>
+      </div>
+      <p class="fixture-meta" id="fx-title">
+        <time datetime={target.toISOString()}>{next.time ? `${dayLong(next)} h` : `${day(next)} · hora por confirmar`}</time> · <span>{away ? `Campo de ${short(next.home)}` : venue}</span>
+      </p>
+      <div class="countdown" id="countdown" role="timer" aria-live="off" data-target={target.toISOString()}>
+        <div><b data-u="d">00</b><small>días</small></div>
+        <div><b data-u="h">00</b><small>horas</small></div>
+        <div><b data-u="m">00</b><small>min</small></div>
+        <div><b data-u="s">00</b><small>seg</small></div>
+      </div>
+    </article>
+  </div>
+</section>
+)}
+
+<script>
+  const box = document.getElementById("countdown");
+  if (box) {
+    const target = new Date(box.dataset.target!).getTime();
+    const el = Object.fromEntries([...box.querySelectorAll<HTMLElement>("[data-u]")].map((e) => [e.dataset.u!, e]));
+    const pad = (n: number) => String(n).padStart(2, "0");
+    const tick = () => {
+      let s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+      const d = Math.floor(s / 86400); s -= d * 86400;
+      const h = Math.floor(s / 3600); s -= h * 3600;
+      const m = Math.floor(s / 60); s -= m * 60;
+      el.d.textContent = pad(d); el.h.textContent = pad(h); el.m.textContent = pad(m); el.s.textContent = pad(s);
+    };
+    tick(); setInterval(tick, 1000);
+  }
+</script>

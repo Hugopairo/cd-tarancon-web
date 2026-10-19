@@ -1,0 +1,34 @@
+---
+import { players } from "../lib/club";
+const pad = (n: number) => String(n).padStart(2, "0");
+const filters = [["all", "Todos"], ["POR", "Porteros"], ["DEF", "Defensas"], ["MED", "Medios"], ["DEL", "Delanteros"]];
+---
+<section class="section squad" id="plantilla">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2>Jugadores</h2>
+      <div class="filters" role="tablist" aria-label="Filtrar por posición">
+        {filters.map(([f, label], i) => <button role="tab" aria-selected={i === 0} data-f={f}>{label}</button>)}
+      </div>
+    </div>
+    <ul class="roster" id="roster" data-reveal>
+      {players.map((p) => (
+        <li class="player" data-pos={p.pos}>
+          <span class="p-num">{p.n == null ? "–" : pad(p.n)}</span>
+          <div><div class="p-name">{p.name}</div><div class="p-pos">{p.role}</div></div>
+          <span class="p-tag" data-pos={p.pos}>{p.pos}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-f]");
+  const rows = document.querySelectorAll<HTMLElement>("#roster .player");
+  buttons.forEach((btn) => btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.setAttribute("aria-selected", String(b === btn)));
+    const f = btn.dataset.f;
+    rows.forEach((li) => li.classList.toggle("hide", f !== "all" && li.dataset.pos !== f));
+  }));
+</script>

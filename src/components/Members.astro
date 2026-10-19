@@ -1,0 +1,47 @@
+---
+// TODO (proyecto intermodular): conectar este formulario con el backend de altas de socio.
+// Ahora mismo solo valida en el navegador y muestra un mensaje; no envía nada a ningún sitio.
+---
+<section class="section members" id="socios">
+  <div class="wrap members-grid">
+    <div data-reveal>
+      <h2>Tu sitio está en la grada</h2>
+      <p class="members-lede">El club se sostiene con quienes lo animan. Un carné de socio es la forma más directa de ayudar al equipo.</p>
+    </div>
+    <form class="join" id="join" novalidate data-reveal>
+      <label>Nombre y apellidos
+        <input name="nombre" type="text" autocomplete="name" required placeholder="Ej. María López">
+      </label>
+      <label>Correo electrónico
+        <input name="email" type="email" autocomplete="email" required placeholder="tu@correo.es">
+      </label>
+      <label>Tipo de carné
+        <select name="tipo">
+          <option>Adulto</option>
+          <option>Juvenil</option>
+          <option>Infantil</option>
+          <option>Familiar</option>
+        </select>
+      </label>
+      <button class="btn btn-primary" type="submit">Quiero ser socio</button>
+      <p class="form-msg" id="join-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("join") as HTMLFormElement;
+  const msg = document.getElementById("join-msg")!;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = form.elements.namedItem("nombre") as HTMLInputElement;
+    const email = form.elements.namedItem("email") as HTMLInputElement;
+    [nombre, email].forEach((i) => i.classList.remove("invalid"));
+    msg.className = "form-msg";
+    if (nombre.value.trim().length < 3) { nombre.classList.add("invalid"); msg.textContent = "Escribe tu nombre y apellidos."; msg.classList.add("err"); nombre.focus(); return; }
+    if (!/^\S+@\S+\.\S+$/.test(email.value)) { email.classList.add("invalid"); msg.textContent = "Revisa el correo: parece incompleto."; msg.classList.add("err"); email.focus(); return; }
+    // TODO: aquí va el fetch() al backend cuando exista.
+    msg.textContent = `¡Gracias, ${nombre.value.trim().split(" ")[0]}! Te contactaremos para completar tu alta.`;
+    msg.classList.add("ok"); form.reset();
+  });
+</script>

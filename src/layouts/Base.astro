@@ -1,0 +1,54 @@
+---
+import "../styles/tokens.css";
+import "../styles/global.css";
+import "../styles/pages.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { url } from "../lib/paths";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Subpáginas: el menú es sólido desde el principio (no hay hero detrás). */
+  solid?: boolean;
+}
+const {
+  title = "CD Tarancón · Fútbol de Tarancón, Cuenca",
+  description = "Web del CD Tarancón: próximo partido, calendario y resultados, jugadores, cantera y cómo hacerte socio. Tercera Federación, Grupo 18.",
+  solid = false,
+} = Astro.props;
+const image = new URL(url("img/escudo.png"), Astro.site).href;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="theme-color" content="#0f1f3d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={image}>
+  <link rel="icon" type="image/png" href={url("img/escudo.png")}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class={solid ? "sub" : ""}>
+  <Nav solid={solid} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <script>
+    // Aparición al hacer scroll
+    const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    els.forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+  </script>
+</body>
+</html>

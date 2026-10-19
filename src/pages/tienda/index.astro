@@ -1,0 +1,37 @@
+---
+import Base from "../../layouts/Base.astro";
+import { url } from "../../lib/paths";
+import productos from "../../data/productos.json";
+
+const euros = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" });
+---
+<Base title="Tienda · CD Tarancón" description="Tienda oficial del CD Tarancón." solid>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Tienda</h1>
+      <p>Camisetas, bufandas y carnés del club.</p>
+    </div>
+  </header>
+  <section class="page-body">
+    <div class="wrap">
+      <p class="todo">
+        <strong>Para el proyecto:</strong> catálogo de ejemplo leído de <code>src/data/productos.json</code> (sin precios reales).
+        Falta el carrito, el pedido y el pago.
+      </p>
+      <div class="shop-grid">
+        {productos.map((p) => (
+          <article class="product" data-id={p.id}>
+            <div class="product-img"><img src={url("img/escudo.png")} alt="" width="120" height="138"></div>
+            <div class="product-body">
+              <h2>{p.nombre}</h2>
+              <p>{p.descripcion}</p>
+              <p class="price">{p.precio == null ? "Precio por definir" : euros.format(p.precio)}</p>
+              {/* TODO carrito: este botón debe añadir el producto (p.id) al carrito. */}
+              <button class="btn btn-primary" type="button" disabled>Añadir al carrito</button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

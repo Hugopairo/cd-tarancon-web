@@ -1,0 +1,21 @@
+---
+const timeline = [
+  ["Años 80", "Echa a andar la Escuela de Fútbol Base Jesús de la Ossa, la más veterana de Castilla-La Mancha."],
+  ["1 jul 1995", "Se funda el Club Deportivo Tarancón."],
+  ["14 jun 1998", "Ascenso a Preferente tras ganar la eliminatoria al CD Guadamur."],
+  ["21 abr 2018", "Ascenso a Tercera División."],
+  ["Hoy", "Tercera Federación, Grupo 18."],
+];
+---
+<section class="section club" id="club">
+  <div class="wrap club-grid">
+    <div class="club-copy" data-reveal>
+      <h2>Treinta años de fútbol en Tarancón</h2>
+      <p>El CD Tarancón nació el 1 de julio de 1995 para tomar el relevo de la Agrupación Deportiva Tarancón. Desde entonces ha crecido desde las categorías regionales hasta competir en la Tercera Federación.</p>
+      <p>Su casa es el Estadio Municipal de Tarancón, con capacidad para 1.500 espectadores, y detrás hay una escuela de fútbol base que forma jugadores en el pueblo desde los años 80.</p>
+    </div>
+    <ol class="timeline" data-reveal>
+      {timeline.map(([when, what]) => <li><strong>{when}</strong><span>{what}</span></li>)}
+    </ol>
+  </div>
+</section>

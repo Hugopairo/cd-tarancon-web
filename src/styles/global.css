@@ -1,26 +1,3 @@
-:root {
-  --blue: oklch(0.46 0.10 247);
-  --blue-deep: oklch(0.36 0.09 250);
-  --navy: oklch(0.24 0.06 255);
-  --navy-2: oklch(0.30 0.07 252);
-  --sky: oklch(0.82 0.08 235);
-  --paper: oklch(0.985 0.004 240);
-  --paper-2: oklch(0.955 0.01 240);
-  --ink: oklch(0.22 0.04 255);
-  --muted: oklch(0.46 0.03 250);
-  --line: oklch(0.22 0.04 255 / .12);
-  --on-navy: oklch(0.97 0.006 240);
-  --on-navy-dim: oklch(0.82 0.025 245);
-  --win: oklch(0.50 0.13 150);
-  --draw: oklch(0.52 0.02 250);
-  --loss: oklch(0.52 0.19 25);
-  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --body: "Barlow", system-ui, sans-serif;
-  --ease: cubic-bezier(.16, 1, .3, 1);
-  --wrap: 1180px;
-  --gutter: clamp(1.25rem, 4vw, 3rem);
-}
-
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; -webkit-text-size-adjust: 100%; }
 body {
