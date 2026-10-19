@@ -1,0 +1,63 @@
+name: Actualizar datos y publicar
+
+on:
+  schedule:
+    # Cada hora los sábados y domingos (días de partido) y cada 6 horas el resto de la semana.
+    - cron: "7 * * * 6,0"
+    - cron: "7 */6 * * 1-5"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Leer calendario, resultados y clasificación
+        run: node scripts/update-data.mjs
+        # Si BeSoccer falla o cambia, el script sale con error y se publican los últimos datos buenos.
+        continue-on-error: true
+
+      - name: Guardar data.json si ha cambiado
+        run: |
+          if [ -n "$(git status --porcelain data.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data.json
+            git commit -m "Datos actualizados"
+            git push
+          fi
+
+      - name: Preparar sitio
+        run: |
+          mkdir _site
+          cp -r index.html script.js styles.css data.json img _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,580 @@
+{
+  "updated": "2026-10-19T11:04:39.358Z",
+  "venue": "Estadio Municipal de Tarancón",
+  "standingsUrl": "https://www.besoccer.com/team/table/tarancon",
+  "fixtures": [
+    {
+      "d": "2026-09-05",
+      "home": "CD Tarancón",
+      "away": "CD Illescas",
+      "j": 1,
+      "time": "19:00",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "d": "2026-09-13",
+      "home": "CD Torrijos",
+      "away": "CD Tarancón",
+      "j": 2,
+      "time": "17:30",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "d": "2026-09-19",
+      "home": "CD Tarancón",
+      "away": "Villa CD",
+      "j": 3,
+      "time": "18:00",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "d": "2026-09-26",
+      "home": "Guadalajara Promesas",
+      "away": "CD Tarancón",
+      "j": 4,
+      "time": "16:00",
+      "score": [
+        2,
+        6
+      ]
+    },
+    {
+      "d": "2026-10-03",
+      "home": "CD Marchamalo",
+      "away": "CD Tarancón",
+      "j": 5,
+      "time": "18:30",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "d": "2026-10-10",
+      "home": "CD Tarancón",
+      "away": "UD Yugo Socuéllamos",
+      "j": 6,
+      "time": "17:00",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "d": "2026-10-18",
+      "home": "CD Quintanar del Rey",
+      "away": "CD Tarancón",
+      "j": 7,
+      "time": "17:30",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "d": "2026-10-24",
+      "home": "CD Tarancón",
+      "away": "Villarrubia CF",
+      "j": 8,
+      "time": "17:00"
+    },
+    {
+      "d": "2026-10-28",
+      "home": "CD Tarancón",
+      "away": "Levante",
+      "comp": "Copa del Rey · 1/64",
+      "time": "19:00"
+    },
+    {
+      "d": "2026-11-01",
+      "home": "CD Noblejas",
+      "away": "CD Tarancón",
+      "j": 9
+    },
+    {
+      "d": "2026-11-08",
+      "home": "CD Tarancón",
+      "away": "CF La Solana",
+      "j": 10
+    },
+    {
+      "d": "2026-11-15",
+      "home": "CD Villacañas",
+      "away": "CD Tarancón",
+      "j": 11
+    },
+    {
+      "d": "2026-11-22",
+      "home": "CD Tarancón",
+      "away": "Huracán de Balazote",
+      "j": 12
+    },
+    {
+      "d": "2026-11-29",
+      "home": "CD Manchego Ciudad Real",
+      "away": "CD Tarancón",
+      "j": 13
+    },
+    {
+      "d": "2026-12-06",
+      "home": "CD Tarancón",
+      "away": "UD Almansa",
+      "j": 14
+    },
+    {
+      "d": "2026-12-13",
+      "home": "AD San Clemente",
+      "away": "CD Tarancón",
+      "j": 15
+    },
+    {
+      "d": "2026-12-20",
+      "home": "CD Tarancón",
+      "away": "CD Toledo",
+      "j": 16
+    },
+    {
+      "d": "2027-01-10",
+      "home": "CP Villarrobledo",
+      "away": "CD Tarancón",
+      "j": 17
+    },
+    {
+      "d": "2027-01-17",
+      "home": "CD Illescas",
+      "away": "CD Tarancón",
+      "j": 18
+    },
+    {
+      "d": "2027-01-24",
+      "home": "CD Tarancón",
+      "away": "CD Torrijos",
+      "j": 19
+    },
+    {
+      "d": "2027-01-31",
+      "home": "Villa CD",
+      "away": "CD Tarancón",
+      "j": 20
+    },
+    {
+      "d": "2027-02-07",
+      "home": "CD Tarancón",
+      "away": "Guadalajara Promesas",
+      "j": 21
+    },
+    {
+      "d": "2027-02-14",
+      "home": "CD Tarancón",
+      "away": "CD Marchamalo",
+      "j": 22
+    },
+    {
+      "d": "2027-02-21",
+      "home": "UD Yugo Socuéllamos",
+      "away": "CD Tarancón",
+      "j": 23
+    },
+    {
+      "d": "2027-02-28",
+      "home": "CD Tarancón",
+      "away": "CD Quintanar del Rey",
+      "j": 24
+    },
+    {
+      "d": "2027-03-07",
+      "home": "Villarrubia CF",
+      "away": "CD Tarancón",
+      "j": 25
+    },
+    {
+      "d": "2027-03-14",
+      "home": "CD Tarancón",
+      "away": "CD Noblejas",
+      "j": 26
+    },
+    {
+      "d": "2027-03-21",
+      "home": "CF La Solana",
+      "away": "CD Tarancón",
+      "j": 27
+    },
+    {
+      "d": "2027-03-28",
+      "home": "CD Tarancón",
+      "away": "CD Villacañas",
+      "j": 28
+    },
+    {
+      "d": "2027-04-04",
+      "home": "Huracán de Balazote",
+      "away": "CD Tarancón",
+      "j": 29
+    },
+    {
+      "d": "2027-04-11",
+      "home": "CD Tarancón",
+      "away": "CD Manchego Ciudad Real",
+      "j": 30
+    },
+    {
+      "d": "2027-04-18",
+      "home": "UD Almansa",
+      "away": "CD Tarancón",
+      "j": 31
+    },
+    {
+      "d": "2027-04-25",
+      "home": "CD Tarancón",
+      "away": "AD San Clemente",
+      "j": 32
+    },
+    {
+      "d": "2027-05-02",
+      "home": "CD Toledo",
+      "away": "CD Tarancón",
+      "j": 33
+    },
+    {
+      "d": "2027-05-09",
+      "home": "CD Tarancón",
+      "away": "CP Villarrobledo",
+      "j": 34
+    }
+  ],
+  "table": [
+    {
+      "pos": 1,
+      "team": "CD Manchego Ciudad Real",
+      "pts": 18,
+      "pj": 7,
+      "g": 6,
+      "e": 0,
+      "p": 1,
+      "gf": 10,
+      "gc": 5,
+      "form": [
+        "V",
+        "V",
+        "V",
+        "D",
+        "V"
+      ]
+    },
+    {
+      "pos": 2,
+      "team": "CD Torrijos",
+      "pts": 14,
+      "pj": 7,
+      "g": 4,
+      "e": 2,
+      "p": 1,
+      "gf": 10,
+      "gc": 4,
+      "form": [
+        "E",
+        "V",
+        "E",
+        "V",
+        "D"
+      ]
+    },
+    {
+      "pos": 3,
+      "team": "CD Illescas",
+      "pts": 14,
+      "pj": 7,
+      "g": 4,
+      "e": 2,
+      "p": 1,
+      "gf": 11,
+      "gc": 7,
+      "form": [
+        "E",
+        "V",
+        "V",
+        "V",
+        "D"
+      ]
+    },
+    {
+      "pos": 4,
+      "team": "CD Toledo",
+      "pts": 13,
+      "pj": 7,
+      "g": 4,
+      "e": 1,
+      "p": 2,
+      "gf": 15,
+      "gc": 8,
+      "form": [
+        "D",
+        "V",
+        "V",
+        "V",
+        "D"
+      ]
+    },
+    {
+      "pos": 5,
+      "team": "CP Villarrobledo",
+      "pts": 13,
+      "pj": 7,
+      "g": 3,
+      "e": 4,
+      "p": 0,
+      "gf": 9,
+      "gc": 2,
+      "form": [
+        "V",
+        "V",
+        "V",
+        "E",
+        "E"
+      ]
+    },
+    {
+      "pos": 6,
+      "team": "CD Tarancón",
+      "pts": 13,
+      "pj": 7,
+      "g": 4,
+      "e": 1,
+      "p": 2,
+      "gf": 13,
+      "gc": 8,
+      "form": [
+        "V",
+        "V",
+        "E",
+        "V",
+        "V"
+      ]
+    },
+    {
+      "pos": 7,
+      "team": "Villa CD",
+      "pts": 12,
+      "pj": 7,
+      "g": 4,
+      "e": 0,
+      "p": 3,
+      "gf": 8,
+      "gc": 8,
+      "form": [
+        "D",
+        "V",
+        "V",
+        "V",
+        "D"
+      ]
+    },
+    {
+      "pos": 8,
+      "team": "UD Almansa",
+      "pts": 11,
+      "pj": 7,
+      "g": 3,
+      "e": 2,
+      "p": 2,
+      "gf": 12,
+      "gc": 7,
+      "form": [
+        "E",
+        "V",
+        "D",
+        "V",
+        "E"
+      ]
+    },
+    {
+      "pos": 9,
+      "team": "CD Villacañas",
+      "pts": 11,
+      "pj": 7,
+      "g": 3,
+      "e": 2,
+      "p": 2,
+      "gf": 10,
+      "gc": 7,
+      "form": [
+        "E",
+        "V",
+        "D",
+        "E",
+        "V"
+      ]
+    },
+    {
+      "pos": 10,
+      "team": "CD Marchamalo",
+      "pts": 11,
+      "pj": 7,
+      "g": 3,
+      "e": 2,
+      "p": 2,
+      "gf": 12,
+      "gc": 10,
+      "form": [
+        "E",
+        "D",
+        "E",
+        "D",
+        "V"
+      ]
+    },
+    {
+      "pos": 11,
+      "team": "CD Noblejas",
+      "pts": 10,
+      "pj": 7,
+      "g": 3,
+      "e": 1,
+      "p": 3,
+      "gf": 10,
+      "gc": 12,
+      "form": [
+        "V",
+        "D",
+        "D",
+        "D",
+        "V"
+      ]
+    },
+    {
+      "pos": 12,
+      "team": "AD San Clemente",
+      "pts": 9,
+      "pj": 7,
+      "g": 2,
+      "e": 3,
+      "p": 2,
+      "gf": 11,
+      "gc": 13,
+      "form": [
+        "D",
+        "D",
+        "V",
+        "V",
+        "E"
+      ]
+    },
+    {
+      "pos": 13,
+      "team": "Villarrubia CF",
+      "pts": 6,
+      "pj": 7,
+      "g": 1,
+      "e": 3,
+      "p": 3,
+      "gf": 8,
+      "gc": 11,
+      "form": [
+        "D",
+        "D",
+        "E",
+        "D",
+        "V"
+      ]
+    },
+    {
+      "pos": 14,
+      "team": "CF La Solana",
+      "pts": 6,
+      "pj": 7,
+      "g": 2,
+      "e": 0,
+      "p": 5,
+      "gf": 6,
+      "gc": 10,
+      "form": [
+        "V",
+        "D",
+        "D",
+        "D",
+        "V"
+      ]
+    },
+    {
+      "pos": 15,
+      "team": "CD Quintanar del Rey",
+      "pts": 5,
+      "pj": 7,
+      "g": 1,
+      "e": 2,
+      "p": 4,
+      "gf": 7,
+      "gc": 13,
+      "form": [
+        "E",
+        "D",
+        "D",
+        "V",
+        "D"
+      ]
+    },
+    {
+      "pos": 16,
+      "team": "UD Yugo Socuéllamos",
+      "pts": 4,
+      "pj": 7,
+      "g": 0,
+      "e": 4,
+      "p": 3,
+      "gf": 3,
+      "gc": 7,
+      "form": [
+        "E",
+        "D",
+        "E",
+        "D",
+        "D"
+      ]
+    },
+    {
+      "pos": 17,
+      "team": "Guadalajara Promesas",
+      "pts": 2,
+      "pj": 7,
+      "g": 0,
+      "e": 2,
+      "p": 5,
+      "gf": 6,
+      "gc": 17,
+      "form": [
+        "E",
+        "D",
+        "E",
+        "D",
+        "D"
+      ]
+    },
+    {
+      "pos": 18,
+      "team": "Huracán de Balazote",
+      "pts": 1,
+      "pj": 7,
+      "g": 0,
+      "e": 1,
+      "p": 6,
+      "gf": 6,
+      "gc": 18,
+      "form": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "E"
+      ]
+    }
+  ]
+}

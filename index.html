@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CD Tarancón · Fútbol de Tarancón, Cuenca</title>
+<meta name="description" content="Web del CD Tarancón: próximo partido, calendario y resultados, jugadores, cantera y cómo hacerte socio. Tercera Federación, Grupo 18.">
+<meta name="theme-color" content="#0f1f3d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CD Tarancón · Fútbol de Tarancón, Cuenca">
+<meta property="og:description" content="Calendario, resultados, jugadores y cantera del CD Tarancón. Tercera Federación, Grupo 18.">
+<meta property="og:image" content="img/escudo.png">
+<link rel="icon" type="image/png" href="img/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#inicio" aria-label="CD Tarancón, inicio">
+    <img class="brand-mark" src="img/escudo.png" alt="" width="30" height="34">
+    <span>CD Tarancón</span>
+  </a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="m-open" d="M4 7h16M4 12h16M4 17h16"/><path class="m-close" d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <nav class="nav-links" id="nav-links" aria-label="Principal">
+    <a href="#partido">Partido</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#plantilla">Jugadores</a>
+    <a href="#club">El club</a>
+    <a href="#cantera">Cantera</a>
+    <a href="#socios" class="nav-cta">Hazte socio</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <svg class="pitch" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <rect class="draw" x="80" y="80" width="1040" height="640" pathLength="1"/>
+      <line class="draw" x1="600" y1="80" x2="600" y2="720" pathLength="1"/>
+      <circle class="draw" cx="600" cy="400" r="110" pathLength="1"/>
+      <rect class="draw" x="80" y="230" width="190" height="340" pathLength="1"/>
+      <rect class="draw" x="930" y="230" width="190" height="340" pathLength="1"/>
+      <rect class="draw" x="80" y="320" width="70" height="160" pathLength="1"/>
+      <rect class="draw" x="1050" y="320" width="70" height="160" pathLength="1"/>
+      <path class="draw" d="M270 330a110 110 0 0 1 0 140" pathLength="1"/>
+      <path class="draw" d="M930 330a110 110 0 0 0 0 140" pathLength="1"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <h1>CD Tarancón</h1>
+      <p class="hero-lede">El club de fútbol de Tarancón, fundado en 1995. Hoy compite en Tercera Federación, Grupo 18, con una cantera que juega en casa desde los años 80.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#partido">Próximo partido</a>
+        <a class="btn btn-ghost" href="#socios">Hazte socio</a>
+      </div>
+    </div>
+    <img class="hero-crest" src="img/escudo.png" alt="Escudo del CD Tarancón" width="294" height="339">
+  </div>
+
+  <div class="matchbar">
+    <div class="wrap matchbar-in">
+      <a href="#calendario" class="mb-item" id="mb-last"></a>
+      <a href="#partido" class="mb-item" id="mb-next"></a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIDO -->
+<section class="section match" id="partido">
+  <div class="wrap match-grid">
+    <div class="match-head">
+      <h2>Próximo partido</h2>
+      <p class="muted">Cuenta atrás para el siguiente partido del primer equipo.</p>
+      <p class="then" id="then" hidden></p>
+    </div>
+
+    <article class="fixture" aria-labelledby="fx-title">
+      <p class="fx-comp" id="fx-comp"></p>
+      <div class="fixture-teams">
+        <div class="team team-home"><img class="team-logo" src="img/escudo.png" alt="" width="92" height="106"><span class="team-name">CD Tarancón</span></div>
+        <span class="vs">vs</span>
+        <div class="team team-away"><span class="team-crest" id="fx-crest" aria-hidden="true">—</span><span class="team-name" id="fx-rival">Rival</span></div>
+      </div>
+      <p class="fixture-meta" id="fx-title"><time id="fx-date" datetime="">Fecha por confirmar</time> · <span id="fx-venue">Estadio Municipal de Tarancón</span></p>
+      <div class="countdown" id="countdown" role="timer" aria-live="off">
+        <div><b data-u="d">00</b><small>días</small></div>
+        <div><b data-u="h">00</b><small>horas</small></div>
+        <div><b data-u="m">00</b><small>min</small></div>
+        <div><b data-u="s">00</b><small>seg</small></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CALENDARIO -->
+<section class="section calendar" id="calendario">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Calendario y resultados</h2>
+        <p class="muted">Tercera Federación, Grupo 18 · Temporada 2026-27 · 34 jornadas, hasta el 9 de mayo.</p>
+      </div>
+      <div class="filters" role="tablist" aria-label="Ver partidos">
+        <button role="tab" aria-selected="true" data-cal="next">Próximos</button>
+        <button role="tab" aria-selected="false" data-cal="played">Resultados</button>
+      </div>
+    </div>
+    <div class="cal-grid">
+      <div>
+        <ol class="fixtures" id="fixtures" aria-label="Partidos del CD Tarancón"></ol>
+        <button class="btn btn-line" id="cal-more" type="button">Ver todas las jornadas</button>
+      </div>
+      <aside class="standing" aria-labelledby="st-h">
+        <h3 id="st-h">Clasificación</h3>
+        <table class="st-table">
+          <thead><tr><th scope="col"><span class="sr">Puesto</span></th><th scope="col">Equipo</th><th scope="col">PJ</th><th scope="col">DG</th><th scope="col">Pts</th></tr></thead>
+          <tbody id="st-body"></tbody>
+        </table>
+        <p class="st-formrow"><span>Últimos 5</span><span class="st-form" id="st-form"></span></p>
+        <a class="btn btn-primary" id="st-link" href="#" target="_blank" rel="noopener">Clasificación oficial</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- PLANTILLA -->
+<section class="section squad" id="plantilla">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Jugadores</h2>
+      <div class="filters" role="tablist" aria-label="Filtrar por posición">
+        <button role="tab" aria-selected="true" data-f="all">Todos</button>
+        <button role="tab" aria-selected="false" data-f="POR">Porteros</button>
+        <button role="tab" aria-selected="false" data-f="DEF">Defensas</button>
+        <button role="tab" aria-selected="false" data-f="MED">Medios</button>
+        <button role="tab" aria-selected="false" data-f="DEL">Delanteros</button>
+      </div>
+    </div>
+    <ul class="roster" id="roster"></ul>
+  </div>
+</section>
+
+<!-- CLUB -->
+<section class="section club" id="club">
+  <div class="wrap club-grid">
+    <div class="club-copy">
+      <h2>Treinta años de fútbol en Tarancón</h2>
+      <p>El CD Tarancón nació el 1 de julio de 1995 para tomar el relevo de la Agrupación Deportiva Tarancón. Desde entonces ha crecido desde las categorías regionales hasta competir en la Tercera Federación.</p>
+      <p>Su casa es el Estadio Municipal de Tarancón, con capacidad para 1.500 espectadores, y detrás hay una escuela de fútbol base que forma jugadores en el pueblo desde los años 80.</p>
+    </div>
+    <ol class="timeline">
+      <li><strong>Años 80</strong><span>Echa a andar la Escuela de Fútbol Base Jesús de la Ossa, la más veterana de Castilla-La Mancha.</span></li>
+      <li><strong>1 jul 1995</strong><span>Se funda el Club Deportivo Tarancón.</span></li>
+      <li><strong>14 jun 1998</strong><span>Ascenso a Preferente tras ganar la eliminatoria al CD Guadamur.</span></li>
+      <li><strong>21 abr 2018</strong><span>Ascenso a Tercera División.</span></li>
+      <li><strong>Hoy</strong><span>Tercera Federación, Grupo 18.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CANTERA -->
+<section class="section academy" id="cantera">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cantera</h2>
+      <p class="muted">Del primer balón al primer equipo, con la escuela de fútbol base de Tarancón.</p>
+    </div>
+    <ol class="pathway">
+      <li><h3>Prebenjamín</h3><p>Jugar, reír y tocar el balón. Todo lo demás viene después.</p><span class="age">6–7 años</span></li>
+      <li><h3>Benjamín</h3><p>Primeros equipos de fútbol 7 y primeras ganas de ganar.</p><span class="age">8–9 años</span></li>
+      <li><h3>Alevín</h3><p>Táctica básica, trabajo en equipo y mucho aprendizaje.</p><span class="age">10–11 años</span></li>
+      <li><h3>Infantil · Cadete</h3><p>El salto al campo grande, con entrenadores que forman personas.</p><span class="age">12–15 años</span></li>
+      <li><h3>Juvenil</h3><p>La puerta al primer equipo del CD Tarancón.</p><span class="age">16–18 años</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SOCIOS -->
+<section class="section members" id="socios">
+  <div class="wrap members-grid">
+    <div>
+      <h2>Tu sitio está en la grada</h2>
+      <p class="members-lede">El club se sostiene con quienes lo animan. Un carné de socio es la forma más directa de ayudar al equipo.</p>
+    </div>
+    <form class="join" id="join" novalidate>
+      <label>Nombre y apellidos
+        <input name="nombre" type="text" autocomplete="name" required placeholder="Ej. María López">
+      </label>
+      <label>Correo electrónico
+        <input name="email" type="email" autocomplete="email" required placeholder="tu@correo.es">
+      </label>
+      <label>Tipo de carné
+        <select name="tipo">
+          <option>Adulto</option>
+          <option>Juvenil</option>
+          <option>Infantil</option>
+          <option>Familiar</option>
+        </select>
+      </label>
+      <button class="btn btn-primary" type="submit">Quiero ser socio</button>
+      <p class="form-msg" id="join-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer" id="contacto">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#inicio"><img class="brand-mark" src="img/escudo.png" alt="" width="30" height="34"><span>CD Tarancón</span></a>
+      <p>Estadio Municipal de Tarancón<br>Tarancón, Cuenca · Castilla-La Mancha</p>
+    </div>
+    <nav aria-label="Pie de página">
+      <h3>Web</h3>
+      <ul>
+        <li><a href="#partido">Próximo partido</a></li>
+        <li><a href="#calendario">Calendario y resultados</a></li>
+        <li><a href="#plantilla">Jugadores</a></li>
+        <li><a href="#socios">Hazte socio</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h3>Más información</h3>
+      <ul>
+        <li><a href="https://www.besoccer.com/team/matches/tarancon" target="_blank" rel="noopener">Calendario en BeSoccer</a></li>
+        <li><a href="https://futbolme.com/resultados-directo/equipo/cd-tarancon/8904/calendario" target="_blank" rel="noopener">Calendario en Futbolme</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">© <span id="year"></span> CD Tarancón. Web no oficial. Datos de BeSoccer y SofaScore; la lista de jugadores puede estar incompleta.<span id="updated"></span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
